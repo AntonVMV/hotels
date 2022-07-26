@@ -1,0 +1,32 @@
+.banner {
+  background: var(--very-light);
+  border-radius: 12px;
+  padding: 70px 55px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  object-fit: cover;
+  position: absolute;
+}
+
+.description {
+  display: grid;
+  row-gap: 25px;
+}
+
+.title {
+  color: var(--primary);
+  max-width: 328px;
+}
+
+.text {
+  color: var(--secondary);
+}

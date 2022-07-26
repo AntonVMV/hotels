@@ -1,0 +1,35 @@
+.form {
+  background-color: var(--white);
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  border-radius: 35px;
+  padding: 16px 90px 16px 30px;
+  max-width: 740px;
+  column-gap: 15px;
+  position: relative;
+}
+
+.input_el {
+  display: grid;
+  row-gap: 5px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  padding-right: 15px;
+  border-right: 1px solid #dddddd;
+}
+
+.input_el:nth-child(4) {
+  border-right: none;
+}
+
+.button {
+  position: absolute;
+  right: 0;
+  align-self: center;
+  margin-right: 8px;
+}
+
+.countries {
+  position: relative;
+}

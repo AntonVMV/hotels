@@ -1,0 +1,26 @@
+.card {
+  height: 340px;
+}
+
+.card_text {
+  color: var(--very-light);
+}
+
+.description {
+  margin-top: 30px;
+  display: grid;
+  row-gap: 10px;
+  cursor: pointer;
+}
+
+.amenities {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.amenities_item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}

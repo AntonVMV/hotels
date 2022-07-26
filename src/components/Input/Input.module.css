@@ -1,0 +1,19 @@
+.input {
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: transparent;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.input::placeholder {
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+.input:focus {
+  outline: none;
+}

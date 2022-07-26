@@ -1,0 +1,45 @@
+.button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.round {
+  border-radius: 100%;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.main {
+  padding: 20px 100px;
+  border-radius: 30px;
+}
+
+.primary {
+  background-color: var(--primary);
+  color: var(--white);
+  transition: 0.2s ease;
+}
+
+.primary:hover {
+  background-color: var(--secondary);
+}
+
+.secondary {
+  background-color: var(--secondary);
+  transition: 0.2s ease;
+}
+
+.secondary:hover {
+  background-color: var(--primary);
+}
+
+.ghost {
+  background-color: transparent;
+  border: 1px solid #484848;
+  border-radius: 6px;
+  color: var(--primary);
+}

@@ -1,0 +1,19 @@
+.header {
+  background-color: var(--very-light);
+  padding: 14px 0;
+}
+
+.header_wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 133px;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 43px;
+  text-decoration: none;
+  color: var(--primary);
+}

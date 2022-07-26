@@ -1,0 +1,23 @@
+.card {
+  height: 340px;
+}
+
+.description {
+  display: grid;
+  row-gap: 8px;
+}
+
+.avatar {
+  border-radius: 100%;
+  margin-bottom: 10px;
+  width: 70px;
+  height: 70px;
+}
+
+.name {
+  color: var(--very-light);
+}
+
+.address {
+  color: var(--light);
+}
