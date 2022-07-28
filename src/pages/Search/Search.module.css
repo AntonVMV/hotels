@@ -1,0 +1,23 @@
+.search {
+  padding: 90px 0;
+  min-height: 50vh;
+  display: grid;
+}
+
+.title {
+  color: var(--primary);
+  text-transform: capitalize;
+  margin-bottom: 90px;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.loading {
+  align-self: center;
+  justify-self: center;
+  color: var(--primary);
+}

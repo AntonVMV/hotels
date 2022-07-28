@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CountriesReducer from "./slices/countriesSlice";
+import { hotelsApi } from "./services/hotels.api";
 
 const store = configureStore({
   reducer: {
     countries: CountriesReducer,
+    [hotelsApi.reducerPath]: hotelsApi.reducer,
   },
 });
 

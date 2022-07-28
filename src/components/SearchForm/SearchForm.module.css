@@ -17,6 +17,7 @@
   line-height: 15px;
   padding-right: 15px;
   border-right: 1px solid #dddddd;
+  position: relative;
 }
 
 .input_el:nth-child(4) {

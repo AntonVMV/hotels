@@ -1,0 +1,55 @@
+.search_card {
+  box-shadow: 0px 0px 10px var(--secondary);
+  border-radius: 6px;
+}
+
+.card {
+  height: 385px;
+  border-radius: 6px 6px 0 0;
+}
+
+.info {
+  color: var(--white);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-end;
+  gap: 10px 20px;
+}
+
+.avatar {
+  border-radius: 100%;
+  width: 76px;
+  height: 76px;
+  grid-row: 1 / 4;
+}
+
+.description {
+  padding: 30px 25px;
+  display: grid;
+  row-gap: 10px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.address {
+  color: var(--secondary);
+}
+
+.amenities {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.amenities_item {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.conditions {
+  margin-top: 10px;
+  display: flex;
+  color: var(--secondary);
+  gap: 30px;
+}

@@ -46,3 +46,10 @@ export interface IHotelFullInfo extends IHotelInfo {
   amenities: IAmenity[];
   reviews: IReview[];
 }
+
+export interface ISearchHotelsParams {
+  location: string;
+  checkIn: string;
+  checkOut: string;
+  guest: number;
+}

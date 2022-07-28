@@ -7,24 +7,21 @@ interface ICountriesState {
   error: string | null;
 }
 
-export const fetchCountries = createAsyncThunk<string[]>(
-  "countries/fetchCountries",
-  async (_, { rejectWithValue }) => {
-    try {
-      const result = await axios.get<{ name: string }[]>(
-        "https://module5.7t33n.ru/hotel/location"
-      );
+export const fetchCountries = createAsyncThunk<
+  string[],
+  undefined,
+  { rejectValue: string }
+>("countries/fetchCountries", async (_, { rejectWithValue }) => {
+  try {
+    const result = await axios.get<{ name: string }[]>(
+      "https://module5.7t33n.ru/hotel/location"
+    );
 
-      return result.data.map((item) => item.name);
-    } catch (e) {
-      if (e instanceof Error) {
-        return rejectWithValue(e.message);
-      } else {
-        return rejectWithValue("Unknown error");
-      }
-    }
+    return result.data.map((item) => item.name);
+  } catch (e) {
+    return rejectWithValue(e instanceof Error ? e.message : "Server Error");
   }
-);
+});
 
 const initialState: ICountriesState = {
   countries: [],
@@ -49,7 +46,9 @@ const CountriesSlice = createSlice({
       })
       .addCase(fetchCountries.rejected, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
+        if (action.payload) {
+          state.error = action.payload;
+        }
       });
   },
 });

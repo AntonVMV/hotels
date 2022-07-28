@@ -17,3 +17,18 @@
 .input:focus {
   outline: none;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.error {
+  color: red;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  padding: 10px;
+  background-color: var(--very-light);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
