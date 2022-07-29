@@ -7,6 +7,8 @@ const store = configureStore({
     countries: CountriesReducer,
     [hotelsApi.reducerPath]: hotelsApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(hotelsApi.middleware),
 });
 
 export default store;

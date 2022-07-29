@@ -2,6 +2,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .round {
@@ -42,4 +43,11 @@
   border: 1px solid #484848;
   border-radius: 6px;
   color: var(--primary);
+  padding: 20px 40px;
+}
+
+.ghost:hover {
+  background-color: var(--secondary);
+  border: 1px solid var(--white);
+  color: var(--white);
 }

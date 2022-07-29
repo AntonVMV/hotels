@@ -21,6 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   formType = "main",
   color = "primary",
+  ...props
 }) => {
   return (
     <button
@@ -31,6 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
         [styles.primary]: color === "primary",
         [styles.secondary]: color === "secondary",
       })}
+      {...props}
     >
       {children}
     </button>

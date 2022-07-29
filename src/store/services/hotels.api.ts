@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IHotelInfo } from "../../types";
+import { IHotelInfo, IHotelFullInfo } from "../../types";
 
 export const hotelsApi = createApi({
   reducerPath: "hotelsApi",
@@ -14,7 +14,12 @@ export const hotelsApi = createApi({
         body: params,
       }),
     }),
+    getHotelInfo: build.query<IHotelFullInfo, string>({
+      query: (id) => ({
+        url: `detail/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useSearchHotelsQuery } = hotelsApi;
+export const { useSearchHotelsQuery, useGetHotelInfoQuery } = hotelsApi;

@@ -5,6 +5,7 @@ import { LatestHotelCard } from "../../components/Cards/LatestHotelCard/LatestHo
 import { Banner } from "../../components/Banner/Banner";
 import { FeaturedHotelCard } from "../../components/Cards/FeaturedHotelCard/FeaturedHotelCard";
 import { Input } from "../../components/Input/Input";
+import { Link } from "react-router-dom";
 
 const mockHotel = {
   author: {
@@ -59,7 +60,9 @@ export const Home = () => {
           Latest on the Property Listing
         </h2>
         <div className={styles.latest_cards}>
-          <LatestHotelCard data={mockHotel} />
+          <Link to={`details/${mockHotel._id}`}>
+            <LatestHotelCard data={mockHotel} />
+          </Link>
           <LatestHotelCard data={mockHotel} />
           <LatestHotelCard data={mockHotel} />
           <LatestHotelCard data={mockHotel} />
@@ -69,7 +72,7 @@ export const Home = () => {
         <Banner
           title="Try Hosting With Us"
           text="Earn extra just by renting your property..."
-          imgUrl="/"
+          imgUrl="https://i.pinimg.com/originals/b3/95/2f/b3952fc5b246983378b7d19f5c01384e.jpg"
         />
       </section>
       <section className={cn(styles.featured, "wrapper")}>
