@@ -1,18 +1,16 @@
-.search_card {
-  box-shadow: 0px 0px 10px var(--secondary);
-  border-radius: 6px;
-}
-
 .card {
+  padding: 20px;
   height: 385px;
-  border-radius: 6px 6px 0 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-end;
 }
 
 .info {
   color: var(--white);
   display: grid;
   grid-template-columns: auto 1fr;
-  align-items: flex-end;
   gap: 10px 20px;
 }
 

@@ -1,17 +1,19 @@
-.card {
-  height: 340px;
-}
-
 .description {
   display: grid;
-  row-gap: 8px;
+  grid-template-columns: auto 1fr;
+  align-content: flex-end;
+  align-items: center;
+  column-gap: 15px;
+  padding: 20px;
+  height: 340px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .avatar {
   border-radius: 100%;
-  margin-bottom: 10px;
   width: 70px;
   height: 70px;
+  grid-row: 1 / 3;
 }
 
 .name {

@@ -2,6 +2,8 @@ import { HotelCard } from "../HotelCard";
 import { IHotelInfo } from "../../../types";
 import { ReactComponent as BedroomIcon } from "../Bedroom.svg";
 import { ReactComponent as BathroomIcon } from "../Bathroom.svg";
+import { SliderControlDots } from "../../SliderControlDots/SliderControlDots";
+import { Carousel } from "../../Carousel/Carousel";
 import cn from "classnames";
 import styles from "./SearchCard.module.css";
 
@@ -11,23 +13,36 @@ interface SearcCardProps {
 
 export const SearchCard: React.FC<SearcCardProps> = ({ data }) => {
   return (
-    <div className={styles.search_card}>
-      <HotelCard
-        favoritesHandler={() => {}}
-        imageUrl={data.images}
-        className={styles.card}
-      >
-        <div className={styles.info}>
-          <img
-            src={data.author.avatar}
-            alt="author avatar"
-            className={styles.avatar}
-          />
-          <p className={cn(styles.text, "text-s")}>Listed by:</p>
-          <h5 className={cn(styles.name, "title-xs")}>Test Name</h5>
-          <p className={cn(styles.price, "text-l")}>{data.price.join(" - ")}</p>
-        </div>
+    <>
+      <HotelCard>
+        <Carousel
+          images={data.images}
+          renderProp={({ moveTo, active }) => {
+            return (
+              <div className={styles.card}>
+                <div className={styles.info}>
+                  <img
+                    src={data.author.avatar}
+                    alt="author avatar"
+                    className={styles.avatar}
+                  />
+                  <p className={cn(styles.text, "text-s")}>Listed by:</p>
+                  <h5 className={cn(styles.name, "title-xs")}>Test Name</h5>
+                  <p className={cn(styles.price, "text-l")}>
+                    {data.price.join(" - ")}
+                  </p>
+                </div>
+                <SliderControlDots
+                  images={data.images}
+                  clickHandler={moveTo}
+                  active={active}
+                />
+              </div>
+            );
+          }}
+        />
       </HotelCard>
+
       <div className={styles.description}>
         <h4 className={cn(styles.title, "title-xs")}>{data.name}</h4>
         <p className={cn(styles.address, "text-m")}>{data.address}</p>
@@ -46,6 +61,6 @@ export const SearchCard: React.FC<SearcCardProps> = ({ data }) => {
           <p>For Short Period: 3 - 5 Months</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };

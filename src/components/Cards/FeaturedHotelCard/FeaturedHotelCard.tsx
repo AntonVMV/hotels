@@ -1,7 +1,9 @@
 import { IHotelInfo } from "../../../types";
+import { Carousel } from "../../Carousel/Carousel";
 import { HotelCard } from "../HotelCard";
 import cn from "classnames";
 import styles from "./FeaturedHotelCard.module.css";
+import { SliderControlDots } from "../../SliderControlDots/SliderControlDots";
 import { ReactComponent as BedroomIcon } from "../Bedroom.svg";
 import { ReactComponent as BathroomIcon } from "../Bathroom.svg";
 
@@ -13,15 +15,25 @@ export const FeaturedHotelCard: React.FC<FeaturedHotelCardProps> = ({
   data,
 }) => {
   return (
-    <div className={styles.featured}>
-      <HotelCard
-        favoritesHandler={() => console.log()}
-        imageUrl={data.images}
-        className={styles.card}
-      >
-        <p className={cn(styles.card_text, "text-xl")}>
-          {data.price.join(" - ")}
-        </p>
+    <>
+      <HotelCard>
+        <Carousel
+          images={data.images}
+          renderProp={({ moveTo, active }) => {
+            return (
+              <div className={styles.card}>
+                <p className={cn(styles.card_text, "text-xl")}>
+                  {data.price.join(" - ")}
+                </p>
+                <SliderControlDots
+                  clickHandler={moveTo}
+                  active={active}
+                  images={data.images}
+                />
+              </div>
+            );
+          }}
+        />
       </HotelCard>
       <div className={styles.description}>
         <h5 className={cn(styles.title, "title-xs")}>{data.name}</h5>
@@ -37,6 +49,6 @@ export const FeaturedHotelCard: React.FC<FeaturedHotelCardProps> = ({
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

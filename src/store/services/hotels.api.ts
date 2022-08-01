@@ -7,6 +7,11 @@ export const hotelsApi = createApi({
     baseUrl: "https://module5.7t33n.ru/hotel",
   }),
   endpoints: (build) => ({
+    getHomeHotels: build.query<IHotelInfo[], string>({
+      query: (resourse) => ({
+        url: `/${resourse}`,
+      }),
+    }),
     searchHotels: build.query<IHotelInfo[], Record<string, string>>({
       query: (params) => ({
         method: "POST",
@@ -22,4 +27,8 @@ export const hotelsApi = createApi({
   }),
 });
 
-export const { useSearchHotelsQuery, useGetHotelInfoQuery } = hotelsApi;
+export const {
+  useSearchHotelsQuery,
+  useGetHotelInfoQuery,
+  useGetHomeHotelsQuery,
+} = hotelsApi;

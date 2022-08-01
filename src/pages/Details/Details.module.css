@@ -3,7 +3,6 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: repeat(5, auto);
   gap: 40px 55px;
-  color: var(--primary);
 }
 
 .text {
@@ -93,7 +92,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 20px;
-  /* justify-items: flex-start; */
 }
 
 .amenities h4 {
@@ -117,6 +115,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px 38px;
+}
+
+.map {
+  height: 420px;
+  background-color: var(--very-light);
+  filter: grayscale(1) brightness(1);
 }
 
 .reviews h4 {

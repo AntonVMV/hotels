@@ -1,7 +1,8 @@
 import cn from "classnames";
 import styles from "./Search.module.css";
 import { SearchCard } from "../../components/Cards/SearchCard/SearchCard";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { Loading } from "../../components/Loading/Loading";
 import { useSearchHotelsQuery } from "../../store/services/hotels.api";
 
 export const Search: React.FC = () => {
@@ -11,11 +12,7 @@ export const Search: React.FC = () => {
   );
 
   if (isLoading) {
-    return (
-      <div className={cn(styles.search, "wrapper")}>
-        <h2 className={cn(styles.loading, "title-s")}>Loading...</h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
@@ -26,7 +23,17 @@ export const Search: React.FC = () => {
       <div className={styles.results}>
         {data &&
           data.map((item) => {
-            return <SearchCard data={item} key={item._id} />;
+            return (
+              <>
+                <Link
+                  to={`/details/${item._id}`}
+                  key={item._id}
+                  className={styles.link}
+                >
+                  <SearchCard data={item} key={item._id} />
+                </Link>
+              </>
+            );
           })}
       </div>
     </div>

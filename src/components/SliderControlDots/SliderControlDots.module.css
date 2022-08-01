@@ -1,0 +1,22 @@
+.controls {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 5px;
+}
+
+.control_dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.control_dot:hover {
+  transform: scale(120%);
+}
+
+.control_dot.active {
+  background-color: var(--secondary);
+}

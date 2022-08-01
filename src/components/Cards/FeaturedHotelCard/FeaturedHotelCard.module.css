@@ -1,5 +1,11 @@
 .card {
+  padding: 20px;
   height: 340px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .card_text {
@@ -11,6 +17,11 @@
   display: grid;
   row-gap: 10px;
   cursor: pointer;
+  color: var(--primary);
+}
+
+.address {
+  color: var(--secondary);
 }
 
 .amenities {

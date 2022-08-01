@@ -5,12 +5,14 @@ import { ReactComponent as FavoriteIcon } from "../../components/Cards/FavoriteI
 import { ReactComponent as ShareIcon } from "./Share.svg";
 import { useGetHotelInfoQuery } from "../../store/services/hotels.api";
 import { ImagesBlock } from "../../components/ImagesBlock/ImagesBlock";
-import cn from "classnames";
-import styles from "./Details.module.css";
 import { Button } from "../../components/Button/Button";
 import { IAmenity, IReview } from "../../types";
 import { Review } from "../../components/Review/Review";
 import { useEffect, useState } from "react";
+import { Loading } from "../../components/Loading/Loading";
+import { MapComponent } from "../../pageComponents/MapComponent/MapComponent";
+import cn from "classnames";
+import styles from "./Details.module.css";
 
 export const Details: React.FC = () => {
   const { id } = useParams<string>();
@@ -25,6 +27,10 @@ export const Details: React.FC = () => {
       setReviews(data.reviews.slice(0, 4));
     }
   }, [data]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -79,7 +85,7 @@ export const Details: React.FC = () => {
               {amenities.map((item, index) => {
                 return (
                   <div className={styles.service} key={index}>
-                    <img src={item.icon} alt="" />
+                    <img src={item.icon} alt="service icon" />
                     <p className={cn(styles.text, "text-l")}>{item.name}</p>
                   </div>
                 );
@@ -96,7 +102,13 @@ export const Details: React.FC = () => {
                 )}
             </div>
 
-            {/* Map wil be here */}
+            <div className={styles.map}>
+              <MapComponent
+                location={data.coords.map((item) => parseFloat(item))}
+                hotel={data.name}
+                address={data.address}
+              />
+            </div>
 
             <div className={styles.reviews}>
               <h4 className={cn(styles.subtitle, "title-xs")}>Reviews</h4>
