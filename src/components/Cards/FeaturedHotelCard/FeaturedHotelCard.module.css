@@ -5,7 +5,10 @@
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
-  align-items: flex-end;
+  align-content: flex-end;
+  align-items: center;
+  z-index: 1;
+  position: relative;
 }
 
 .card_text {
@@ -34,4 +37,14 @@
   display: flex;
   gap: 5px;
   align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    height: 240px;
+  }
+
+  .description {
+    margin-top: 15px;
+  }
 }

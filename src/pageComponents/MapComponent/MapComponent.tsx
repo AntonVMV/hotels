@@ -30,7 +30,6 @@ export const MapComponent: React.FC<MapComponentsProps> = ({
             iconImageHref:
               "https://cdn-icons-png.flaticon.com/512/4974/4974589.png",
             hasHint: true,
-            balloonContent: "asasgfgas",
           }}
           properties={{
             hintContent: hotel,

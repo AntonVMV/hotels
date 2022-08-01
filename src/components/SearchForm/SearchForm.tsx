@@ -52,7 +52,7 @@ export const SearchForm = () => {
               data={countries}
               value={field.value}
               change={field.onChange}
-              placeholder="Which city do you prefer"
+              placeholder="Which city do you prefer?"
               id="city-select-input"
               error={errors.location}
             />

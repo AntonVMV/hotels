@@ -1,4 +1,5 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
+import { BurgerElement } from "../BurgerElement/BurgerElement";
 import styles from "./NavBar.module.css";
 import cn from "classnames";
 import { Link } from "react-router-dom";
@@ -9,21 +10,34 @@ interface NavBarProps
 }
 
 export const NavBar: React.FC<NavBarProps> = ({ links, className }) => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
   return (
-    <nav className={cn(styles.navigaton, className)}>
-      <ul className={styles.navList}>
-        {links.map(({ linkName, linkTo }, index) => {
-          return (
-            <Link
-              to={linkTo}
-              key={index}
-              className={cn(styles.navLink, "text-l")}
-            >
-              {linkName}
-            </Link>
-          );
+    <>
+      <BurgerElement
+        isActive={isMenuOpen}
+        toggleActive={() => setMenuOpen((prev) => !prev)}
+      />
+
+      <nav
+        className={cn(styles.navigaton, className, {
+          [styles.active]: isMenuOpen,
         })}
-      </ul>
-    </nav>
+      >
+        <ul className={styles.navList}>
+          {links.map(({ linkName, linkTo }, index) => {
+            return (
+              <Link
+                to={linkTo}
+                key={index}
+                className={cn(styles.navLink, "text-l")}
+              >
+                {linkName}
+              </Link>
+            );
+          })}
+        </ul>
+      </nav>
+    </>
   );
 };

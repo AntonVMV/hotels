@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -94,5 +96,17 @@ code {
 @media screen and (max-width: 1250px) {
   .wrapper {
     padding: 0 20px;
+  }
+
+  .title-l {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .title-m {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
   }
 }

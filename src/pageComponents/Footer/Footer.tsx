@@ -14,7 +14,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <NewsLetter />
       <div className={cn(styles.content, "wrapper")}>
-        <div className={styles.footer_column}>
+        <div className={cn(styles.footer_column, styles.main_column)}>
           <Link to="/" className={cn(styles.logo, "title-l")}>
             LOGO
           </Link>

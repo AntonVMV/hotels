@@ -28,3 +28,16 @@
   transform: translateY(-50%);
   right: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .newsletter {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    row-gap: 20px;
+    text-align: center;
+  }
+
+  .newsletter_description {
+    grid-column: 1;
+  }
+}

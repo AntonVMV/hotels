@@ -17,3 +17,15 @@
   text-decoration: none;
   color: var(--primary);
 }
+
+@media screen and (max-width: 900px) {
+  .header_wrapper {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header_wrapper {
+    column-gap: 10px;
+  }
+}

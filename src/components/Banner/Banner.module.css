@@ -28,3 +28,9 @@
 .title {
   max-width: 328px;
 }
+
+@media screen and (max-width: 468px) {
+  .banner {
+    padding: 30px 25px;
+  }
+}

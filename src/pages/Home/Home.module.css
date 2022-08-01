@@ -68,7 +68,7 @@
 
 .featured_cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 50px 30px;
 }
 
@@ -93,4 +93,39 @@
 
 .link:hover {
   transform: scale(105%);
+}
+
+@media screen and (max-width: 768px) {
+  .wellcome {
+    grid-template-columns: 1fr;
+  }
+
+  .wellcome_content {
+    grid-column: 1;
+    justify-items: center;
+    padding: 0 50px;
+  }
+
+  .wellcome_title {
+    margin: 0;
+    justify-self: flex-start;
+  }
+
+  .link:hover {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wellcome {
+    padding: 200px 0 75px;
+  }
+
+  .featured_cards {
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  }
+
+  .latest_cards {
+    gap: 15px;
+  }
 }

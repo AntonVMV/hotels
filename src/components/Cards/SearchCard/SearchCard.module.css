@@ -5,6 +5,8 @@
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: flex-end;
+  z-index: 1;
+  position: relative;
 }
 
 .info {
@@ -50,4 +52,14 @@
   display: flex;
   color: var(--secondary);
   gap: 30px;
+}
+
+@media screen and (max-width: 480px) {
+  .info {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar {
+    grid-row: 2 /3;
+  }
 }

@@ -1,5 +1,5 @@
 .search {
-  margin: 90px 0;
+  margin: 90px auto;
   min-height: 50vh;
   display: grid;
 }
@@ -25,4 +25,22 @@
 
 .link:hover {
   transform: scale(105%);
+}
+
+@media screen and (max-width: 900px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    margin: 50px auto;
+  }
+
+  .title {
+    color: var(--primary);
+    text-transform: capitalize;
+    margin-bottom: 50px;
+  }
 }

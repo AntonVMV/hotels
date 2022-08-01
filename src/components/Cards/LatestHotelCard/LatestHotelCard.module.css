@@ -7,6 +7,8 @@
   padding: 20px;
   height: 340px;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: relative;
 }
 
 .avatar {
@@ -22,4 +24,10 @@
 
 .address {
   color: var(--light);
+}
+
+@media screen and (max-width: 480px) {
+  .description {
+    height: 240px;
+  }
 }

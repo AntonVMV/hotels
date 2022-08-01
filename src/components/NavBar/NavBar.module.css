@@ -9,3 +9,51 @@
   text-decoration: none;
   color: var(--primary);
 }
+
+@media screen and (max-width: 900px) {
+  .navigaton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 3;
+    transition: 0.2s linear;
+  }
+
+  .navigaton::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--light);
+    border-radius: 10% 0 0 100%;
+    transition: 0.2s linear;
+  }
+
+  .active.navigaton::before {
+    width: 270px;
+    height: 400px;
+    transition: 0.2s linear;
+  }
+
+  .navigaton.active {
+    opacity: 1;
+  }
+
+  .navList {
+    position: relative;
+    z-index: 4;
+    padding: 105px 20px 0;
+    flex-direction: column;
+
+    text-align: end;
+    max-width: 220px;
+  }
+
+  .navLink {
+    font-size: 18px;
+  }
+}
