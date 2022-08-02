@@ -1,0 +1,23 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 12px;
+}
+
+.input {
+  padding: 0 14px;
+  height: 49px;
+  border-bottom: 1px solid black;
+}
+
+.phone,
+.comment,
+.button {
+  grid-column: 1 / 3;
+}
+
+.button {
+  margin-top: 14px;
+
+  justify-self: flex-end;
+}

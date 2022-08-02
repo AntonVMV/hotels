@@ -12,12 +12,12 @@
 .input_el {
   display: grid;
   row-gap: 5px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 15px;
   padding-right: 15px;
   border-right: 1px solid #dddddd;
   position: relative;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
 }
 
 .input_el:nth-child(4) {

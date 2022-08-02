@@ -16,7 +16,8 @@ export const NavBar: React.FC<NavBarProps> = ({ links, className }) => {
     <>
       <BurgerElement
         isActive={isMenuOpen}
-        toggleActive={() => setMenuOpen((prev) => !prev)}
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className={styles.burger_element}
       />
 
       <nav

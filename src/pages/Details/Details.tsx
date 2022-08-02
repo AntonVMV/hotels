@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ReactComponent as BathroomIcon } from "../../components/Cards/Bathroom.svg";
 import { ReactComponent as BedroomIcon } from "../../components/Cards/Bedroom.svg";
 import { ReactComponent as FavoriteIcon } from "../../components/Cards/FavoriteIcon.svg";
@@ -42,7 +42,9 @@ export const Details: React.FC = () => {
               <p className={cn(styles.price, "text-xxl")}>
                 {data.price.join(" - ")}
               </p>
-              <Button>Reserve now</Button>
+              <Link to={{ pathname: "/reserve" }} state={{ data }}>
+                <Button>Reserve now</Button>
+              </Link>
             </div>
             <div className={styles.info}>
               <div className={styles.name}>

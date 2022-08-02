@@ -10,14 +10,22 @@
   color: var(--primary);
 }
 
+.burger_element {
+  display: none;
+}
+
 @media screen and (max-width: 900px) {
+  .burger_element {
+    display: block;
+  }
+
   .navigaton {
     position: absolute;
     right: 0;
     top: 0;
     opacity: 0;
     z-index: 3;
-    transition: 0.2s linear;
+    transition: 0.15s linear;
   }
 
   .navigaton::before {
@@ -30,13 +38,13 @@
     height: 0;
     background-color: var(--light);
     border-radius: 10% 0 0 100%;
-    transition: 0.2s linear;
+    transition: 0.15s linear;
   }
 
   .active.navigaton::before {
     width: 270px;
     height: 400px;
-    transition: 0.2s linear;
+    transition: 0.15s linear;
   }
 
   .navigaton.active {
@@ -45,11 +53,15 @@
 
   .navList {
     position: relative;
-    z-index: 4;
+    display: none;
     padding: 105px 20px 0;
     flex-direction: column;
     text-align: end;
     max-width: 220px;
+  }
+
+  .active .navList {
+    display: flex;
   }
 
   .navLink {

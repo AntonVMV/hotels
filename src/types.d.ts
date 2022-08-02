@@ -53,3 +53,14 @@ export interface ISearchHotelsParams {
   checkOut: string;
   guest: number;
 }
+
+export interface IReserveForm {
+  firstName: string;
+  lastName: string;
+  info1: string;
+  info2: string;
+  country: string;
+  email: string;
+  phone: string;
+  comment: string;
+}
