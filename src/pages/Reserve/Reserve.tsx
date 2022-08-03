@@ -12,8 +12,6 @@ export const Reserve: React.FC = () => {
   const location = useLocation();
   const { data } = location.state as StateType;
 
-  console.log(data);
-
   return (
     <div className={cn(styles.reserve, "wrapper")}>
       <ReserveForm />

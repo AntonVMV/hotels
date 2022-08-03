@@ -43,7 +43,7 @@ export const Details: React.FC = () => {
                 {data.price.join(" - ")}
               </p>
               <Link to={{ pathname: "/reserve" }} state={{ data }}>
-                <Button>Reserve now</Button>
+                <Button className={styles.reserve_btn}>Reserve now</Button>
               </Link>
             </div>
             <div className={styles.info}>

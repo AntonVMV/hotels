@@ -18,6 +18,49 @@
 
 .button {
   margin-top: 14px;
-
   justify-self: flex-end;
+  min-width: 200px;
+}
+
+.popup {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  max-width: 80vw;
+}
+
+.shown {
+  animation: popup_add 0.2s linear forwards;
+}
+
+@media screen and (max-width: 480px) {
+  .popup {
+    right: 10px;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px 12px;
+  }
+
+  .phone,
+  .comment,
+  .button {
+    grid-column: 1;
+  }
+}
+
+@keyframes popup_add {
+  0% {
+    transform: translateX(100%);
+  }
+
+  75% {
+    transform: translateX(-10%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }

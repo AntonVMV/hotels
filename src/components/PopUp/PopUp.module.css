@@ -1,0 +1,13 @@
+.popup {
+  color: var(--white);
+  padding: 40px 60px;
+  background-color: var(--primary);
+  z-index: 10;
+  border-radius: 6px;
+  opacity: 0;
+  transition: 0.3s linear;
+}
+
+.active {
+  opacity: 1;
+}

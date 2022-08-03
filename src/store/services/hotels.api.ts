@@ -12,23 +12,23 @@ export const hotelsApi = createApi({
         url: `/${resourse}`,
       }),
     }),
-    searchHotels: build.query<IHotelInfo[], Record<string, string>>({
+    getHotelInfo: build.query<IHotelFullInfo, string>({
+      query: (id) => ({
+        url: `detail/${id}`,
+      }),
+    }),
+    searchHotels: build.mutation<IHotelInfo[], Record<string, string>>({
       query: (params) => ({
         method: "POST",
         url: "/filter",
         body: params,
       }),
     }),
-    getHotelInfo: build.query<IHotelFullInfo, string>({
-      query: (id) => ({
-        url: `detail/${id}`,
-      }),
-    }),
   }),
 });
 
 export const {
-  useSearchHotelsQuery,
+  useSearchHotelsMutation,
   useGetHotelInfoQuery,
   useGetHomeHotelsQuery,
 } = hotelsApi;
