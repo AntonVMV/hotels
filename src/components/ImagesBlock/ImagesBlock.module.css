@@ -15,7 +15,7 @@
 }
 
 .image_container:hover img {
-  transform: scale(110%);
+  transform: scale(120%);
 }
 
 .image_container:first-child {
@@ -28,7 +28,7 @@
   height: 100%;
   object-fit: cover;
   background-color: var(--very-light);
-  transition: 0.2s linear;
+  transition: 1s ease;
 }
 
 .more {

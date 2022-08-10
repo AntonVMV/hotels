@@ -1,0 +1,76 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+/*MODAL FORM*/
+
+.form {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 16px;
+  z-index: 10;
+  display: grid;
+  row-gap: 10px;
+  justify-items: center;
+}
+
+.form > svg {
+  width: 100px;
+  height: 100px;
+  fill: var(--primary);
+}
+
+.input {
+  min-width: 250px;
+  padding: 15px;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.buttons {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.toggler {
+  margin-top: 50px;
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+}
+
+.link {
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.link svg {
+  fill: var(--primary);
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  transition: 0.2s ease;
+}
+
+.link:hover {
+  color: var(--secondary);
+}
+
+.link:hover svg {
+  transform: translateX(10px);
+  fill: var(--secondary);
+}

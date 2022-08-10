@@ -15,6 +15,7 @@ export const ReserveForm = () => {
     handleSubmit,
     register,
     formState: { errors },
+    reset,
   } = useForm<IReserveForm>();
   const [isPopup, setIsPopup] = useState<string | null>(null);
 
@@ -26,6 +27,7 @@ export const ReserveForm = () => {
       setIsPopup("Server error, try again later");
       console.log(e);
     }
+    reset();
   };
 
   return (
@@ -121,11 +123,7 @@ export const ReserveForm = () => {
 
       {isPopup && (
         <Portal>
-          <PopUp
-            className={cn(styles.popup, { [styles.shown]: isPopup })}
-            closeHndl={() => setIsPopup(null)}
-            isActive={!!isPopup}
-          >
+          <PopUp closeHndl={() => setIsPopup(null)} isActive={!!isPopup}>
             {isPopup}
           </PopUp>
         </Portal>

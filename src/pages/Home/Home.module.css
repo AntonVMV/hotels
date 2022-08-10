@@ -88,11 +88,11 @@
 
 .link {
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 }
 
 .link:hover {
-  transform: scale(105%);
+  transform: scale(103%);
 }
 
 @media screen and (max-width: 768px) {

@@ -64,3 +64,22 @@ export interface IReserveForm {
   phone: string;
   comment: string;
 }
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+export interface IRegister extends ILogin {
+  username: string;
+}
+
+export interface IUser {
+  _id: string;
+  username: string;
+  email: string;
+  favorites: any[];
+  createdAt: Date;
+  updatedAt: Date;
+  token?: string;
+}

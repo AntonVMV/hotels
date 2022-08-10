@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import { ReactComponent as FavoriteIcon } from "./FavoriteIcon.svg";
 import cn from "classnames";

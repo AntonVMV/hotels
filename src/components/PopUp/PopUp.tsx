@@ -12,7 +12,6 @@ interface PopUpProps
 
 export const PopUp: React.FC<PopUpProps> = ({
   isActive,
-
   children,
   closeHndl,
   className,
@@ -22,6 +21,7 @@ export const PopUp: React.FC<PopUpProps> = ({
     const id = setTimeout(() => {
       closeHndl();
     }, 3000);
+
     return () => clearTimeout(id);
   }, [closeHndl]);
 
@@ -32,7 +32,6 @@ export const PopUp: React.FC<PopUpProps> = ({
       })}
       {...props}
     >
-      {}
       {children}
     </div>
   );

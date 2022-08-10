@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import cn from "classnames";
 import styles from "./Carousel.module.css";
 
@@ -11,12 +11,17 @@ interface RenderPropArgs {
 
 type Render = (controls: RenderPropArgs) => JSX.Element;
 
-interface CarouselProps {
+interface CarouselProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   images: string[];
   renderProp: Render;
 }
 
-export const Carousel: React.FC<CarouselProps> = ({ images, renderProp }) => {
+export const Carousel: React.FC<CarouselProps> = ({
+  images,
+  renderProp,
+  className,
+}) => {
   const [activeImage, setActiveImage] = useState(0);
 
   const moveLeft = () => {
@@ -40,7 +45,7 @@ export const Carousel: React.FC<CarouselProps> = ({ images, renderProp }) => {
   };
 
   return (
-    <div className={styles.carousel}>
+    <div className={cn(styles.carousel, className)}>
       {images.map((item, index) => {
         return (
           <img

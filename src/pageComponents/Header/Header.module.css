@@ -5,7 +5,7 @@
 
 .header_wrapper {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   column-gap: 133px;
   align-items: center;
 }
@@ -20,12 +20,12 @@
 
 @media screen and (max-width: 900px) {
   .header_wrapper {
-    grid-template-columns: 1fr auto;
+    column-gap: 30px;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .header_wrapper {
-    column-gap: 10px;
+  .userbar {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    justify-self: flex-end;
   }
 }
