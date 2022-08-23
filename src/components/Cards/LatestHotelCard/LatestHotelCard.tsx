@@ -1,7 +1,8 @@
 import cn from "classnames";
+import { parseAddress } from "../../../helpers/helpers";
 import { IHotel } from "../../../types";
 import { Carousel } from "../../Carousel/Carousel";
-import { HotelCard } from "../HotelCard";
+import { FavoriteElement } from "../../FavoriteElement/FavoriteElement";
 import styles from "./LatestHotelCard.module.css";
 
 interface LatestHotelCardProps {
@@ -10,23 +11,26 @@ interface LatestHotelCardProps {
 
 export const LatestHotelCard: React.FC<LatestHotelCardProps> = ({ data }) => {
   return (
-    <HotelCard>
+    <div className={styles.card}>
+      <FavoriteElement className={styles.favorites} id={data._id} />
       <Carousel
         images={[data.image]}
         renderProp={() => {
           return (
             <div className={styles.description}>
               <img
-                src={data.author.avatar}
+                src={data.profile.avatar}
                 alt="author avatar"
                 className={styles.avatar}
               />
               <h5 className={cn(styles.name, "title-xs")}>{data.name}</h5>
-              <p className={cn(styles.address, "text-m")}>{data.address}</p>
+              <p className={cn(styles.address, "text-m")}>
+                {parseAddress(data.address)}
+              </p>
             </div>
           );
         }}
       />
-    </HotelCard>
+    </div>
   );
 };

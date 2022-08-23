@@ -2,7 +2,7 @@ import { Input } from "../Input/Input";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button/Button";
 import { IReserveForm } from "../../types";
-import { useSetReserveMutation } from "../../store/services/reserve.api";
+import { useSetReserveMutation } from "../../store/services/user.api";
 import { PopUp } from "../PopUp/PopUp";
 import cn from "classnames";
 import styles from "./ReserveForm.module.css";
@@ -24,8 +24,7 @@ export const ReserveForm = () => {
       await sendForm(data).unwrap();
       setIsPopup("Success");
     } catch (e) {
-      setIsPopup("Server error, try again later");
-      console.log(e);
+      setIsPopup("Server error");
     }
     reset();
   };
@@ -121,13 +120,9 @@ export const ReserveForm = () => {
         </Button>
       </form>
 
-      {isPopup && (
-        <Portal>
-          <PopUp closeHndl={() => setIsPopup(null)} isActive={!!isPopup}>
-            {isPopup}
-          </PopUp>
-        </Portal>
-      )}
+      <Portal isActive={!!isPopup}>
+        <PopUp closeHndl={() => setIsPopup(null)}>{isPopup}</PopUp>
+      </Portal>
     </>
   );
 };

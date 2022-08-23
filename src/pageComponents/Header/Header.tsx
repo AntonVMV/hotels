@@ -6,12 +6,9 @@ import { Login } from "../../components/Login/Login";
 import { UserMenu } from "../../components/UserMenu/UserMenu";
 import styles from "./Header.module.css";
 import { useAppSelector } from "../../hooks/storeHooks";
-import { useEffect } from "react";
 
 export const Header = () => {
-  const { data } = useAppSelector((state) => state.auth);
-
-  useEffect(() => {}, [data]);
+  const data = useAppSelector((state) => Boolean(state.auth.data));
 
   return (
     <header className={styles.header}>

@@ -4,7 +4,7 @@ import { IHotelInfo, IHotelFullInfo } from "../../types";
 export const hotelsApi = createApi({
   reducerPath: "hotelsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://module5.7t33n.ru/hotel",
+    baseUrl: "http://localhost:3002/api/hotels",
   }),
   endpoints: (build) => ({
     getHomeHotels: build.query<IHotelInfo[], string>({
@@ -14,7 +14,7 @@ export const hotelsApi = createApi({
     }),
     getHotelInfo: build.query<IHotelFullInfo, string>({
       query: (id) => ({
-        url: `detail/${id}`,
+        url: `/detail/${id}`,
       }),
     }),
     searchHotels: build.mutation<IHotelInfo[], Record<string, string>>({

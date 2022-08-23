@@ -1,10 +1,10 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export const authAxiosInstance = axios.create({
-  baseURL: "http://localhost:3002/api/auth",
+export const axiosInstance = axios.create({
+  baseURL: "http://localhost:3002/api",
 });
 
-authAxiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
+axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
   if (!config.headers) config.headers = {};
 
   config.headers.Authorization =

@@ -51,3 +51,8 @@
   border: 1px solid var(--white);
   color: var(--white);
 }
+
+.disabled {
+  background-color: var(--secondary);
+  pointer-events: none;
+}

@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { ReactComponent as BathroomIcon } from "../../components/Cards/Bathroom.svg";
 import { ReactComponent as BedroomIcon } from "../../components/Cards/Bedroom.svg";
-import { ReactComponent as FavoriteIcon } from "../../components/Cards/FavoriteIcon.svg";
 import { ReactComponent as ShareIcon } from "./Share.svg";
 import { useGetHotelInfoQuery } from "../../store/services/hotels.api";
 import { ImagesBlock } from "../../components/ImagesBlock/ImagesBlock";
@@ -11,6 +10,8 @@ import { Review } from "../../components/Review/Review";
 import { useEffect, useState } from "react";
 import { Loading } from "../../components/Loading/Loading";
 import { MapComponent } from "../../pageComponents/MapComponent/MapComponent";
+import { parseAddress } from "../../helpers/helpers";
+import { FavoriteElement } from "../../components/FavoriteElement/FavoriteElement";
 import cn from "classnames";
 import styles from "./Details.module.css";
 
@@ -49,20 +50,22 @@ export const Details: React.FC = () => {
             <div className={styles.info}>
               <div className={styles.name}>
                 <h3 className={cn(styles.title, "title-s")}>{data.name}</h3>
-                <p className={cn(styles.text, "text-l")}>{data.address}</p>
+                <p className={cn(styles.text, "text-l")}>
+                  {parseAddress(data.address)}
+                </p>
               </div>
               <div className={styles.extra}>
                 <div className={styles.extra_item}>
                   <BathroomIcon />
-                  <span>{data.info[0].bathroom} bathrooms</span>
+                  <span>{data.info.bathroom} bathrooms</span>
                 </div>
                 <div className={styles.extra_item}>
                   <BedroomIcon />
-                  <span>{data.info[0].bedroom} bedrooms</span>
+                  <span>{data.info.bedroom} bedrooms</span>
                 </div>
               </div>
               <div className={styles.share}>
-                <FavoriteIcon />
+                <FavoriteElement className={styles.favorite} id={data._id} />
                 <ShareIcon />
               </div>
             </div>
@@ -108,7 +111,7 @@ export const Details: React.FC = () => {
               <MapComponent
                 location={data.coords.map((item) => parseFloat(item))}
                 hotel={data.name}
-                address={data.address}
+                address={parseAddress(data.address)}
               />
             </div>
 

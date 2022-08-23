@@ -16,11 +16,10 @@ export const ImagesBlock: React.FC<ImagesBlockProps> = ({
 
   return (
     <>
-      {isModal && (
-        <Portal>
-          <ImageSlider images={images} closeHandler={() => setIsModal(false)} />
-        </Portal>
-      )}
+      <Portal isActive={isModal}>
+        <ImageSlider images={images} closeHandler={() => setIsModal(false)} />
+      </Portal>
+
       <div className={styles.images} {...props}>
         {images.slice(0, 5).map((item, index) => {
           return (

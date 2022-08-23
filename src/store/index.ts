@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CountriesReducer from "./slices/countriesSlice";
 import { hotelsApi } from "./services/hotels.api";
-import { reserveApi } from "./services/reserve.api";
+import { userApi } from "./services/user.api";
 import authReducer from "./slices/authSlice";
 
 const store = configureStore({
@@ -9,10 +9,10 @@ const store = configureStore({
     countries: CountriesReducer,
     auth: authReducer,
     [hotelsApi.reducerPath]: hotelsApi.reducer,
-    [reserveApi.reducerPath]: reserveApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(hotelsApi.middleware, reserveApi.middleware),
+    getDefaultMiddleware().concat(hotelsApi.middleware, userApi.middleware),
 });
 
 export default store;

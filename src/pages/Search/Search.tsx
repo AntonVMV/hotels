@@ -21,21 +21,20 @@ export const Search: React.FC = () => {
   return (
     <div className={cn(styles.search, "wrapper")}>
       <h2 className={cn(styles.title, "title-s")}>
-        {data && data.length} Results found
+        {data?.length} Results found
       </h2>
       <div className={styles.results}>
-        {data &&
-          data.map((item) => {
-            return (
-              <Link
-                to={`/details/${item._id}`}
-                key={item._id}
-                className={styles.link}
-              >
-                <SearchCard data={item} key={item._id} />
-              </Link>
-            );
-          })}
+        {data?.map((item) => {
+          return (
+            <Link
+              to={`/details/${item._id}`}
+              key={item._id}
+              className={styles.link}
+            >
+              <SearchCard data={item} key={item._id} />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

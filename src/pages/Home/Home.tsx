@@ -2,8 +2,8 @@ import styles from "./Home.module.css";
 import cn from "classnames";
 import { SearchForm } from "../../components/SearchForm/SearchForm";
 import { LatestHotelCard } from "../../components/Cards/LatestHotelCard/LatestHotelCard";
-import { Banner } from "../../components/Banner/Banner";
 import { FeaturedHotelCard } from "../../components/Cards/FeaturedHotelCard/FeaturedHotelCard";
+import { Banner } from "../../components/Banner/Banner";
 import { useGetHomeHotelsQuery } from "../../store/services/hotels.api";
 import { Link } from "react-router-dom";
 
@@ -29,18 +29,17 @@ export const Home = () => {
           Latest on the Property Listing
         </h2>
         <div className={styles.latest_cards}>
-          {latest &&
-            latest.map((item) => {
-              return (
-                <Link
-                  to={`details/${item._id}`}
-                  className={styles.link}
-                  key={item._id}
-                >
-                  <LatestHotelCard data={item} />
-                </Link>
-              );
-            })}
+          {latest?.map((item) => {
+            return (
+              <Link
+                to={`details/${item._id}`}
+                className={styles.link}
+                key={item._id}
+              >
+                <LatestHotelCard data={item} />
+              </Link>
+            );
+          })}
         </div>
       </section>
       <section className={cn(styles.banner, "wrapper")}>
@@ -55,18 +54,17 @@ export const Home = () => {
           Featured Properties on our Listing
         </h2>
         <div className={styles.featured_cards}>
-          {featured &&
-            featured.map((item) => {
-              return (
-                <Link
-                  to={`details/${item._id}`}
-                  className={styles.link}
-                  key={item._id}
-                >
-                  <FeaturedHotelCard data={item} />
-                </Link>
-              );
-            })}
+          {featured?.map((item) => {
+            return (
+              <Link
+                to={`details/${item._id}`}
+                className={styles.link}
+                key={item._id}
+              >
+                <FeaturedHotelCard data={item} />
+              </Link>
+            );
+          })}
         </div>
       </section>
       <section className={cn(styles.banner, "wrapper")}>

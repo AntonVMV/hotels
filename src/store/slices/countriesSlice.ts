@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { axiosInstance } from "../../utils/axios";
 
 interface ICountriesState {
   countries: string[];
@@ -13,11 +13,11 @@ export const fetchCountries = createAsyncThunk<
   { rejectValue: string }
 >("countries/fetchCountries", async (_, { rejectWithValue }) => {
   try {
-    const result = await axios.get<{ name: string }[]>(
-      "https://module5.7t33n.ru/hotel/location"
+    const result = await axiosInstance.get<{ name: string }[]>(
+      "/hotels/location"
     );
 
-    return result.data.map((item) => item.name);
+    return result.data.map((item) => item.name).sort();
   } catch (e) {
     return rejectWithValue(e instanceof Error ? e.message : "Server Error");
   }

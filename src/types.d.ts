@@ -24,23 +24,29 @@ export interface IReview {
   content: string;
 }
 
+export interface IAddress {
+  country: string;
+  city: string;
+  address: string;
+}
+
 export interface IHotel {
-  author: IAuthor;
+  profile: IAuthor;
   _id: string;
   image: string;
   name: string;
-  address: string;
+  address: IAddress;
 }
 
 export interface IHotelInfo extends IHotel {
   price: string[];
   images: string[];
-  info: IInfo[];
+  info: IInfo;
 }
 
 export interface IHotelFullInfo extends IHotelInfo {
   type: string[];
-  period: string[];
+  period: string;
   coords: string[];
   description: string[];
   amenities: IAmenity[];
@@ -78,7 +84,7 @@ export interface IUser {
   _id: string;
   username: string;
   email: string;
-  favorites: any[];
+  favorites: string[];
   createdAt: Date;
   updatedAt: Date;
   token?: string;

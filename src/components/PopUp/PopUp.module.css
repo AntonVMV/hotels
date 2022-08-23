@@ -4,37 +4,8 @@
   background-color: var(--primary);
   z-index: 999;
   border-radius: 6px;
-  opacity: 0;
-  transition: 0.3s linear;
   position: fixed;
   right: 30px;
   bottom: 30px;
   max-width: 80vw;
-  opacity: 0;
-}
-
-.active {
-  animation: popup_add 0.2s linear forwards;
-}
-
-@media screen and (max-width: 480px) {
-  .popup {
-    right: 10px;
-  }
-}
-
-@keyframes popup_add {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-
-  75% {
-    transform: translateX(-20%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }

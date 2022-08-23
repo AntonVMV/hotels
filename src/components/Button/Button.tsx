@@ -14,6 +14,7 @@ interface ButtonProps
   children: ReactNode;
   formType?: "main" | "ghost" | "round";
   color?: "primary" | "secondary";
+  disabled?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -21,6 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   formType = "main",
   color = "primary",
+  disabled = false,
   ...props
 }) => {
   return (
@@ -31,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
         [styles.round]: formType === "round",
         [styles.primary]: color === "primary",
         [styles.secondary]: color === "secondary",
+        [styles.disabled]: disabled,
       })}
       {...props}
     >

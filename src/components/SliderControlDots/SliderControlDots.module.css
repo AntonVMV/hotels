@@ -20,3 +20,12 @@
 .control_dot.active {
   background-color: var(--secondary);
 }
+
+.control_dot.dark {
+  border: 2px solid var(--primary);
+  background-color: transparent;
+}
+
+.control_dot.dark.active {
+  background-color: var(--primary);
+}

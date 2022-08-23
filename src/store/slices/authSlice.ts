@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { ILogin, IRegister, IUser } from "../../types";
 import { AxiosError } from "axios";
-import { authAxiosInstance } from "../../utils/axios";
+import { axiosInstance } from "../../utils/axios";
 
 interface IAuthState {
   data: IUser | null;
@@ -21,7 +21,10 @@ export const registerUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/registerUser", async (formData, { rejectWithValue }) => {
   try {
-    const { data } = await authAxiosInstance.post<IUser>("/register", formData);
+    const { data } = await axiosInstance.post<IUser>(
+      "/auth/register",
+      formData
+    );
 
     if (data.token) {
       localStorage.setItem("HOTELS_AUTH_TOKEN", data.token);
@@ -30,7 +33,9 @@ export const registerUser = createAsyncThunk<
     return data;
   } catch (e) {
     return rejectWithValue(
-      e instanceof AxiosError ? e.response?.data.message : "Unknown Error"
+      e instanceof AxiosError
+        ? e.response?.data?.message || e.message
+        : "Unknown Error"
     );
   }
 });
@@ -41,7 +46,7 @@ export const loginUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/loginUser", async (formData, { rejectWithValue }) => {
   try {
-    const { data } = await authAxiosInstance.post<IUser>("/login", formData);
+    const { data } = await axiosInstance.post<IUser>("/auth/login", formData);
 
     if (data.token) {
       localStorage.setItem("HOTELS_AUTH_TOKEN", data.token);
@@ -49,8 +54,11 @@ export const loginUser = createAsyncThunk<
 
     return data;
   } catch (e) {
+    console.log(e);
     return rejectWithValue(
-      e instanceof AxiosError ? e.response?.data.message : "Unknown Error"
+      e instanceof AxiosError
+        ? e.response?.data?.message || e.message
+        : "Unknown Error"
     );
   }
 });
@@ -61,7 +69,7 @@ export const getUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/getUser", async (_, { rejectWithValue }) => {
   try {
-    const { data } = await authAxiosInstance.get<IUser>("/getme");
+    const { data } = await axiosInstance.get<IUser>("/auth/getme");
 
     return data;
   } catch (e) {

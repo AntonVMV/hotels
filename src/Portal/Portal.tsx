@@ -1,21 +1,16 @@
-import { ReactNode, useEffect } from "react";
-import { createPortal } from "react-dom";
+import { ReactNode } from "react";
+import ReactDOM from "react-dom";
+import { AnimatePresence } from "framer-motion";
 
 interface PortalProps {
   children: ReactNode;
+  isActive: boolean;
 }
 
 const body = document.querySelector("body")!;
 
-export const Portal: React.FC<PortalProps> = ({ children }) => {
-  const container = document.createElement("div");
-  useEffect(() => {
-    body.appendChild(container);
-
-    return () => {
-      body.removeChild(container);
-    };
-  }, [container]);
-
-  return <>{createPortal(children, container)}</>;
-};
+export const Portal: React.FC<PortalProps> = ({ children, isActive }) =>
+  ReactDOM.createPortal(
+    <AnimatePresence mode="wait">{isActive && children}</AnimatePresence>,
+    body
+  );

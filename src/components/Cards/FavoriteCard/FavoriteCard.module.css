@@ -1,0 +1,30 @@
+.card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 50vh;
+  row-gap: 10px;
+  cursor: pointer;
+}
+
+.carousel {
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px 0;
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+}
+
+.description {
+  display: grid;
+  row-gap: 5px;
+  padding: 0 20px 20px;
+}

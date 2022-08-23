@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Reserve.module.css";
 import { IHotelFullInfo } from "../../types";
+import { parseAddress } from "../../helpers/helpers";
 
 interface StateType {
   data: IHotelFullInfo;
@@ -17,14 +18,16 @@ export const Reserve: React.FC = () => {
       <ReserveForm />
       <div className={styles.info}>
         <img
-          src={data.author.avatar}
+          src={data.profile.avatar}
           alt="author avatar"
           className={styles.avatar}
         />
         <h4 className={cn(styles.title, "title-xs")}>{data.name}</h4>
-        <p className={cn(styles.text, "text-m")}>{data.address}</p>
+        <p className={cn(styles.text, "text-m")}>
+          {parseAddress(data.address)}
+        </p>
         <div className={styles.extra}>
-          {Object.entries(data.info[0]).map((item, index) => {
+          {Object.entries(data.info).map((item, index) => {
             return (
               <p key={index} className={cn(styles.text, "text-m")}>
                 {item[0]}: {item[1]}
@@ -36,7 +39,7 @@ export const Reserve: React.FC = () => {
           <h5 className="title-xs">Details:</h5>
           <p className={cn(styles.text, "text-m")}>{data.type[0]}</p>
           <p className={cn(styles.text, "text-m")}>{data.price.join(" - ")}</p>
-          <p className={cn(styles.text, "text-m")}>{data.period[0]}</p>
+          <p className={cn(styles.text, "text-m")}>{data.period}</p>
         </div>
       </div>
     </div>
