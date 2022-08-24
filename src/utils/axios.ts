@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:3002/api",
+  baseURL: "https://hotels-backend.herokuapp.com/api",
 });
 
 axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {

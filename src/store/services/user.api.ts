@@ -5,7 +5,7 @@ export const userApi = createApi({
   reducerPath: "userApi",
   tagTypes: ["Favorites"],
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3002/api/user",
+    baseUrl: "https://hotels-backend.herokuapp.com/api/user",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("HOTELS_AUTH_TOKEN");
 

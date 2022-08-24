@@ -4,7 +4,7 @@ import { IHotelInfo, IHotelFullInfo } from "../../types";
 export const hotelsApi = createApi({
   reducerPath: "hotelsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3002/api/hotels",
+    baseUrl: "https://hotels-backend.herokuapp.com/api/hotels",
   }),
   endpoints: (build) => ({
     getHomeHotels: build.query<IHotelInfo[], string>({
