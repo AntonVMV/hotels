@@ -2,7 +2,7 @@ import { useGetFavoritesQuery } from "../../store/services/user.api";
 import { Loading } from "../../components/Loading/Loading";
 import { FavoriteCard } from "../../components/Cards/FavoriteCard/FavoriteCard";
 import { ReactComponent as DeleteIcon } from "./delete.svg";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useRemoveFromFavoritesMutation } from "../../store/services/user.api";
 import cn from "classnames";
 import styles from "./Favorite.module.css";
@@ -10,8 +10,10 @@ import { useEffect, useState } from "react";
 import { Portal } from "../../Portal/Portal";
 import { PopUp } from "../../components/PopUp/PopUp";
 import { ConfirmModal } from "../../components/Modals/ConfirmModal/ConfirmModal";
+import { useAppSelector } from "../../hooks/storeHooks";
 
 export const Favorites: React.FC = () => {
+  const isAuth = useAppSelector((state) => Boolean(state.auth.data));
   const { data, isLoading } = useGetFavoritesQuery();
   const [removeItem, { data: removeData }] = useRemoveFromFavoritesMutation();
 
@@ -26,6 +28,10 @@ export const Favorites: React.FC = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (!isAuth) {
+    return <Navigate replace to="/" />;
   }
 
   const removeHandler = () => {

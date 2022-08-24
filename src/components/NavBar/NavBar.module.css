@@ -9,6 +9,12 @@
 .navLink {
   text-decoration: none;
   color: var(--primary);
+  transition: 0.2s linear;
+}
+
+.navLink:hover {
+  text-decoration: none;
+  color: var(--secondary);
 }
 
 .burger_element {

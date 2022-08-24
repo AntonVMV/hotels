@@ -6,10 +6,13 @@ import { FeaturedHotelCard } from "../../components/Cards/FeaturedHotelCard/Feat
 import { Banner } from "../../components/Banner/Banner";
 import { useGetHomeHotelsQuery } from "../../store/services/hotels.api";
 import { Link } from "react-router-dom";
+import { Loading } from "../../components/Loading/Loading";
 
 export const Home = () => {
-  const { data: latest } = useGetHomeHotelsQuery("latest");
-  const { data: featured } = useGetHomeHotelsQuery("featured");
+  const { data: latest, isLoading: isLatestLoading } =
+    useGetHomeHotelsQuery("latest");
+  const { data: featured, isLoading: isFeaturedLoading } =
+    useGetHomeHotelsQuery("featured");
 
   return (
     <>
@@ -29,17 +32,21 @@ export const Home = () => {
           Latest on the Property Listing
         </h2>
         <div className={styles.latest_cards}>
-          {latest?.map((item) => {
-            return (
-              <Link
-                to={`details/${item._id}`}
-                className={styles.link}
-                key={item._id}
-              >
-                <LatestHotelCard data={item} />
-              </Link>
-            );
-          })}
+          {isLatestLoading ? (
+            <Loading />
+          ) : (
+            latest?.map((item) => {
+              return (
+                <Link
+                  to={`details/${item._id}`}
+                  className={styles.link}
+                  key={item._id}
+                >
+                  <LatestHotelCard data={item} />
+                </Link>
+              );
+            })
+          )}
         </div>
       </section>
       <section className={cn(styles.banner, "wrapper")}>
@@ -54,17 +61,21 @@ export const Home = () => {
           Featured Properties on our Listing
         </h2>
         <div className={styles.featured_cards}>
-          {featured?.map((item) => {
-            return (
-              <Link
-                to={`details/${item._id}`}
-                className={styles.link}
-                key={item._id}
-              >
-                <FeaturedHotelCard data={item} />
-              </Link>
-            );
-          })}
+          {isFeaturedLoading ? (
+            <Loading />
+          ) : (
+            featured?.map((item) => {
+              return (
+                <Link
+                  to={`details/${item._id}`}
+                  className={styles.link}
+                  key={item._id}
+                >
+                  <FeaturedHotelCard data={item} />
+                </Link>
+              );
+            })
+          )}
         </div>
       </section>
       <section className={cn(styles.banner, "wrapper")}>
