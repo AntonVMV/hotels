@@ -7,6 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Search for hotels, watch info, add to your favorites.
 > The app uses fake data. Backend hosted on heroku, so there may be a small delay at the first start, because backend is asleep.
 
+Project can be viewed at https://hotels-xi.vercel.app/
+
+
 You can search hotes by counties, watch info about them, add and remove from your favorites.  
 Adding to the list of favorites is possible only with authorization.  
 You can register and login or use login - admin@admin.com, password - 12345678
