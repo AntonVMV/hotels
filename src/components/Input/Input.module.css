@@ -42,3 +42,7 @@ input::-webkit-inner-spin-button {
   font-size: 12px;
   line-height: 15px;
 }
+
+input[type='password']::-webkit-credentials-auto-fill-button {
+  margin-right: 70px;
+}
